@@ -156,6 +156,47 @@ main {
 }
 
 
+.separador {
+  height: 60px; /* espacio */
+}
+
+
+
+/* seccion mision y vision */
+.seccion-mision-vision {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.mision, .vision {
+    flex: 1;
+    min-width: 300px;
+    padding: 85px 60px;
+    text-align: center;
+}
+
+.mision {
+    background-color: rgb(180, 0, 0);
+}
+
+.vision {
+    background-color: rgb(200, 20, 20);
+}
+
+.mision h2, .vision h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mision p, .vision p {
+    font-size: 22px;
+    line-height: 1.6;
+}
+
 /* Tarjetas servicios */
 
 .seccionServicios {
@@ -217,7 +258,140 @@ main {
 
 }
 
+/* Sección de Testimonios */
+.seccion-testimonios {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    max-width: 1650px;  
+    margin: 0 auto;     
+    padding: 40px 20px;
+}
 
+.testimonio {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icono-usuario {
+    flex-shrink: 0;
+}
+
+.testimonio p {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.testimonio .autor {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.indicador.activo {
+    background-color: white;
+}
+
+/* Sección de Reseñas */
+.seccion-resenas {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    padding: 50px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1650px;  
+    margin: 0 auto;     
+}
+
+.contenido-resenas {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.contenido-resenas h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contenido-resenas p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.formulario-resenas {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.formulario-resenas textarea {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    resize: vertical;
+}
+
+/* formulario */
+
+.registro {
+    margin: 0px auto 50px auto;
+    max-width: 550px;  
+    text-align: center;
+    background-color:  rgb(218, 159, 83);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.registro input {
+    text-align: center;
+    background-color:  rgb(218, 159, 83);
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+
+.registro button {
+    margin: 20px 15px 50px 25px;
+    text-align: center;
+    background-color:  rgb(218, 159, 83);
+    padding: 10px;
+    border-radius: 20px;
+
+}
 /* seccion footer */
 
 footer {
