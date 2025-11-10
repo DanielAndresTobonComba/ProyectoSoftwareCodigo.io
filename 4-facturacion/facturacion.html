@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historial de Facturación - Surtitiendas Ubaté</title>
+  <link rel="stylesheet" href="form-prod.css">
+  <link rel="stylesheet" href="facturacion.css">
+</head>
+
+<body>
+  <!-- Encabezado -->
+  <div class="tituloEmpresa">
+    <p>Surtitiendas Ubate</p>
+  </div>
+
+  <header id="header">
+        <div class="seccionLogo ">
+            <div class="logo "></div>
+            
+            <div class="seccionInicio">
+                <div class="iniciarSesion ">
+                    <svg  class="simboloInicioSesion" onclick="mostrarDatosIS()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                      </svg>
+                    
+                </div>
+
+                <div class="registrarte ">
+                    <svg class="simboloInicioSesion" onclick="iniciarSesion()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M16 19h6" />
+                        <path d="M19 16v6" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                      </svg>
+                      
+                </div>
+
+                <div class="registrarte sin ">
+                    <svg  class="simboloInicioSesion" onclick="mostrarTarjeta()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-x" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
+                        <path d="M22 22l-5 -5" />
+                        <path d="M17 22l5 -5" />
+                      </svg>
+                      
+                      
+                </div>
+
+                
+            </div>
+            
+        </div>
+
+    <div class="seccionMenu">
+                <a href="../1-Principal/paginaPrincipal.html" class="opcionMenu">Nosotros</a>
+                <a href="../3-compra.alqueria/compra.html" class="opcionMenu">Compra Alqueria</a>
+                <a href="../4-facturacion/facturacion.html" class="opcionMenu">Facturación</a>
+                <a href="../4-form-prod/main.html" class="opcionMenu">Productos</a>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <h2 class="tituloFacturacion">Facturación</h2>
+
+    <section class="tablaFacturas">
+      <table id="tablaHistorial">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th># Comprobante</th>
+            <th>Código Factura</th>
+            <th>Cliente</th>
+            <th>Total</th>
+            <th>Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="filaFactura">
+            <td>11/11/2025</td>
+            <td>4451</td>
+            <td>FAC-201</td>
+            <td>Andrés Felipe Maldonado</td>
+            <td>$11.000</td>
+            <td><button class="btnDetalles">Detalles ▼</button></td>
+          </tr>
+          <tr class="filaDetalles oculto">
+            <td colspan="6">
+              <div class="detalleFactura">
+                <h4>Detalles</h4>
+                <table class="tablaInterna">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Precio Unitario</th>
+                      <th>Precio Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Leche 1L</td><td>Bolsa o caja 1L</td><td>$5.000</td><td>$5.000</td></tr>
+                    <tr><td>Yogurt 1L</td><td>Sabor natural o fresa</td><td>$2.500</td><td>$2.500</td></tr>
+                    <tr><td>Antigest Activia</td><td>Presentación individual</td><td>$2.500</td><td>$2.500</td></tr>
+                    <tr><td>M-M Yogurt</td><td>Presentación individual</td><td>$1.000</td><td>$1.000</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="filaFactura">
+            <td>11/11/2025</td>
+            <td>6780</td>
+            <td>FAC-202</td>
+            <td>Christian</td>
+            <td>$3.500</td>
+            <td><button class="btnDetalles">Detalles ▶</button></td>
+          </tr>
+
+          <tr class="filaFactura">
+            <td>11/11/2025</td>
+            <td>9123</td>
+            <td>FAC-203</td>
+            <td>Daniel Tobon</td>
+            <td>$7.500</td>
+            <td><button class="btnDetalles">Detalles ▶</button></td>
+          </tr>
+
+          <tr class="filaFactura">
+            <td>11/11/2025</td>
+            <td>5531</td>
+            <td>FAC-204</td>
+            <td>Karon Quintero</td>
+            <td>$6.000</td>
+            <td><button class="btnDetalles">Detalles ▶</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="logoAlqueria footer"></div>
+    <p>Tel: 313312846</p>
+    <p>info.surtitiendasUbate</p>
+
+    <div class="seccionRedesSociales">
+      <div class="logos">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" stroke="#fff" fill="none" viewBox="0 0 24 24">
+          <path d="M4 4l11.733 16h4.267l-11.733 -16z"/>
+          <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>
+        </svg>
+      </div>
+    </div>
+  </footer>
+
+  <script src="facturacion.js"></script>
+</body>
+</html>
