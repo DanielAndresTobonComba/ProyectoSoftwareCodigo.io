@@ -1,0 +1,906 @@
+/* Header logo */
+
+* {
+    box-sizing: border-box;
+
+}
+
+.tituloEmpresa {
+    background-color: rgb(233, 36, 36);
+    color: white;
+    height: 50px;
+    font-size: large;
+    text-align: center;
+    padding: 15px;
+}
+
+.tituloEmpresa p {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body {
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.bordeNegro {
+    border: solid black;
+}
+
+.seccionLogo {
+    display: flex;
+    height: 80px;
+
+
+}
+
+.logo {
+    background-image: url("imagenes/logoSurtitiendas.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 80px;
+}
+
+/* Seccion de los logos de inicio de sesion */
+
+.seccionInicio {
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0px 20px 5%;
+}
+
+.iniciarSesion,
+.registrarte {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: rgb(233, 36, 36);
+
+}
+
+
+
+.registrarte p {
+    display: none;
+}
+
+/* menu de busqueda */
+
+.seccionMenu {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(233, 36, 36);
+    width: 100%;
+
+}
+
+.opcionMenu {
+    text-decoration: none;
+    color: white;
+    margin: auto;
+
+}
+
+
+/* seccion del buscador */
+.seccionBuscador {
+
+    display: flex;
+
+    height: 30px;
+    width: 100%;
+    padding: 1px;
+}
+
+.buscador {
+    width: 100%;
+    padding: 2px;
+}
+
+.logoLupa {
+
+    border-radius: 30px;
+    background-color: rgb(233, 36, 36);
+}
+
+
+.buscador input {
+    height: 25px;
+    width: 50%;
+
+}
+
+
+.buscador input[type="submit"] {
+    border-radius: 30px;
+    background-color: rgb(233, 36, 36);
+    border: none;
+    width: 30%;
+}
+
+/* seccion del main del proyecto */
+
+main {
+
+
+    background-image: url("imagenes/logoAlqueria-320px.jpeg");
+    background-size: cover;
+    padding-top: 40%;
+}
+
+.mayorAliado {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+    background-color: rgb(255, 255, 255, 0.7);
+    margin: 0px auto;
+}
+
+
+
+.mayorAliado a {
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+    margin: 0px auto;
+    background-color: rgb(233, 36, 36);
+    border-radius: 5px;
+    width: 50%;
+    height: 12%;
+}
+
+
+.separador {
+  height: 60px; /* espacio */
+}
+
+
+
+/* seccion mision y vision */
+.seccion-mision-vision {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.mision, .vision {
+    flex: 1;
+    min-width: 300px;
+    padding: 85px 60px;
+    text-align: center;
+}
+
+.mision {
+    background-color: rgb(180, 0, 0);
+}
+
+.vision {
+    background-color: rgb(200, 20, 20);
+}
+
+.mision h2, .vision h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mision p, .vision p {
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+/* Tarjetas servicios */
+
+.seccionServicios {
+    margin: 30px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.tarjeta {
+    min-width: 100px;
+    max-width: 240px;
+    margin: 10px auto;
+    height: 330px;
+    background-color: rgb(233, 36, 36);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.imagenTarjeta1 {
+    height: 50%;
+    width: 100%;
+    background-image: url("imagenes/logoDrogueria.jpg");
+    background-size: cover;
+    border-radius: 10px;
+
+
+}
+
+.imagenTarjeta2 {
+    height: 50%;
+    width: 100%;
+    background-image: url("imagenes/logocasa.jgp.jpg");
+    background-size: cover;
+    border-radius: 10px;
+
+}
+
+.imagenTarjeta3 {
+    height: 50%;
+    width: 100%;
+    background-image: url("imagenes/almacenesArreglado.png");
+    background-size: cover;
+    border-radius: 10px;
+
+}
+
+.seccionTextoTarjeta {
+    height: 50%;
+    text-align: center;
+    color: white;
+
+
+}
+
+.textoTarjeta {
+    width: 90%;
+    margin: 0px auto;
+
+}
+
+/* Sección de Testimonios */
+.seccion-testimonios {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    max-width: 1650px;  
+    margin: 0 auto;     
+    padding: 40px 20px;
+}
+
+.testimonio {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icono-usuario {
+    flex-shrink: 0;
+}
+
+.testimonio p {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.testimonio .autor {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.indicador.activo {
+    background-color: white;
+}
+
+/* Sección de Reseñas */
+.seccion-resenas {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    padding: 50px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1650px;  
+    margin: 0 auto;     
+}
+
+.contenido-resenas {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.contenido-resenas h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contenido-resenas p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.formulario-resenas {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.formulario-resenas textarea {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    resize: vertical;
+}
+
+/* formulario */
+
+.registro {
+    margin: 0px auto 50px auto;
+    max-width: 550px;  
+    text-align: center;
+    background-color:  rgb(218, 159, 83);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.registro input {
+    text-align: center;
+    background-color:  rgb(218, 159, 83);
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+
+.registro button {
+    margin: 20px 15px 50px 25px;
+    text-align: center;
+    background-color:  rgb(218, 159, 83);
+    padding: 10px;
+    border-radius: 20px;
+
+}
+/* seccion footer */
+
+footer {
+    background-color: rgb(233, 36, 36);
+    color: white;
+    text-align: center;
+    width: 100%;
+
+}
+
+footer p {
+    font-size: large;
+}
+
+
+.logoAlqueria {
+    background-image: url("imagenes/logo-alqueria-blanco.png");
+    background-size: cover;
+    width: 200px;
+    height: 60px;
+    margin: 0px auto;
+
+}
+
+
+.seccionRedesSociales {
+    display: flex;
+    width: 80%;
+    margin: 10px auto;
+    justify-content: space-evenly;
+}
+
+
+/* Inicio de sesion */ 
+/* Mostrar datos ususario */
+/* Registro de usuario */
+
+
+#tarjetaIniciarSesion , #seccionMostrarDatos , #tarjetaCerrarSesion  {
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: rgb(231 221 221);
+    left: 38%;
+    top: 38%;
+    position: fixed;
+    visibility: hidden;
+
+}
+
+#seccionMostrarDatos button , #tarjetaCerrarSesion button , #tarjetaIniciarSesion button {
+    width: 30%;
+    margin: 0PX auto;
+    border-radius: 3px ;
+    border: none;
+    background-color: #7FC7D9;
+    height: 20px;
+}
+
+
+#tarjetaIniciarSesion input{
+    background-color: #799cd9;
+    margin: 5px;
+    border-radius: 3px ;
+    border: none;
+    color: black;
+    height: 25px;
+}
+
+#tarjetaIniciarSesion a{
+    background-color: #799cd9;
+    width: 50%;
+    height: 20px;
+    margin: 5px auto;
+    border-radius: 3px ;
+}
+
+#botonesCerrarSesion{
+    display: flex;
+}
+
+
+
+
+
+#entradaDatos {
+
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 200px;
+    margin: 20px auto;
+}
+
+#enlaceRegistro {
+    margin-top: 10px;
+}
+
+
+#seccionRegistro input {
+    width: 50%;
+
+}
+
+#botonesRegistro {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0px auto;
+}
+
+
+
+
+/* #seccionMostrarDatos {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    border-radius: 20px;
+    height: 200px;
+    visibility: hidden;
+    background-color: rgb(241, 90, 90);
+    left: 38%;
+    top: 38%;
+    position: fixed;
+} */
+
+
+#seccionRegistro {
+    text-align: center;
+    width: 300px;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #083c64;
+    left: 38%;
+    top: 38%;
+    position: fixed;
+}
+
+/* tarjeta cerrar sesion */
+
+
+
+
+
+
+
+
+@media (min-width: 0px) and (max-width:320px) {
+
+    .seccionInicio {
+        min-width: 100px;
+        margin: 20px 0px 20px 0%;
+    }
+
+    .iniciarSesion,
+    .registrarte {
+        width: 30px;
+        height: 35px;
+    }
+
+    .simboloInicioSesion {
+        width: 30px;
+        height: 30px;
+    }
+
+    .seccionMenu {
+        flex-direction: column;
+    }
+
+    .seccionMenu a {
+        margin: 10px auto;
+
+    }
+
+    .buscador input {
+        width: 60%;
+    }
+
+    .buscador input[type="submit"] {
+
+        border-radius: 30px;
+        background-color: rgb(233, 36, 36);
+        border: none;
+        width: 30%;
+    }
+
+    main {
+        padding-top: 60px;
+        padding-bottom: 10px;
+    }
+
+    .mayorAliado {
+        width: 80%;
+    }
+
+    .mayorAliado h3 {
+        margin: 0px;
+    }
+
+    /* nuestros clientes */
+
+    .imagenTarjeta1 {
+        height: 30%;
+    }
+    
+    .imagenTarjeta2 {
+        height: 30%;
+        
+    }
+    
+    .imagenTarjeta3 {
+        height: 30%;
+        width: 100%;
+        background-image: url("imagenes/almacenesArreglado.png");
+        background-size: cover;
+        border-radius: 10px;
+    
+    }
+
+    .tarjeta {
+        width: 150px;
+        margin: 10px auto;
+        background-color: rgb(233, 36, 36);
+        border-radius: 15px;
+        padding: 10px;
+    }
+
+    /* footer */
+
+    footer p{
+        font-size: 12px;
+    }
+
+    .seccionRedesSociales{
+        flex-direction: column;
+    }
+
+
+    /* iniciar sesion *//* registro usuarios */
+
+    #tarjetaIniciarSesion , #seccionMostrarDatos , #seccionRegistro , #tarjetaCerrarSesion   {
+        left: 5%;
+        top: 18%;
+        width: 200px;
+        text-align: center;
+    
+    }
+
+    #tarjetaIniciarSesion input{
+        width: 150px;
+        margin: 0px auto;
+    }
+
+    #enlaceRegistro{
+        width: 200px;
+    }
+
+    
+    
+    
+
+    
+}
+
+
+
+@media(min-width:321px) and (max-width:500px) {
+
+    .tituloEmpresa {
+        height: 80px;
+        padding: 25px;
+        font-size: 25px;
+    }
+
+    .seccionInicio {
+
+        min-width: 200px;
+        margin: 20px 0px 20px 10%;
+    }
+
+    .buscador input {
+        height: 25px;
+        width: 60%;
+
+    }
+
+
+
+    .buscador input[type="submit"] {
+
+        border-radius: 30px;
+        background-color: rgb(233, 36, 36);
+        border: none;
+        width: 20%;
+    }
+
+    .seccionMenu {
+        flex-direction: column;
+    }
+
+    .seccionMenu a {
+        margin: 10px auto;
+    }
+
+
+    main {
+        padding-top: 50%;
+        padding-bottom: 10%;
+    }
+
+    .mayorAliado {
+        width: 70%;
+        height: 85%;
+    }
+
+
+    
+
+
+
+    /* iniciar sesion */
+
+    #tarjetaIniciarSesion , #seccionMostrarDatos , #seccionRegistro ,#tarjetaCerrarSesion  {
+        left: 5%;
+        top: 18%;
+        width: 300px;
+        text-align: center;
+    
+    }
+
+    #tarjetaIniciarSesion input{
+        width: 200px;
+    }
+
+    #enlaceRegistro{
+        width: 200px;
+    }
+
+}
+
+@media (min-width:501px) and (max-width:768px) {
+
+    .seccionInicio {
+        min-width: 200px;
+        margin: 20px 0px 20px 50%;
+
+    }
+
+    .buscador input {
+        height: 25px;
+        width: 60%;
+
+    }
+
+    .buscador input[type="submit"] {
+        width: 80px;
+    }
+
+    main {
+        padding-top: 40%;
+
+    }
+
+    .mayorAliado {
+        width: 60%;
+        height: 100%;
+        margin: 0px 0px 0px 40%;
+    }
+
+    
+    /* iniciar sesion */
+
+    #tarjetaIniciarSesion , #seccionMostrarDatos , #seccionRegistro , #tarjetaCerrarSesion {
+        left: 30%;
+        top: 30%;
+    }
+
+
+}
+
+
+
+@media (min-width:769px) and (max-width:1250px) {
+
+    .tituloEmpresa {
+        font-size: x-large;
+    }
+
+    a.opcionMenu {
+        font-size: x-large;
+    }
+
+    .seccionInicio {
+        margin: 20px 0px 20px 45%;
+        width: 400px;
+    }
+
+    .buscador input {
+        width: 20%;
+    }
+
+    .buscador input[type="submit"] {
+
+        font-size: large;
+        width: 100px;
+
+    }
+
+    .seccionMenu {
+        height: 40px;
+    }
+
+    main {
+        padding-top: 30%;
+
+    }
+
+    .mayorAliado {
+        width: 50%;
+        height: 100%;
+        margin: 0px 0px 0px 50%;
+        line-height: 200%;
+        font-size: 22px;
+    }
+
+    .seccionServicios {
+        flex-direction: row;
+    }
+}
+
+
+@media (min-width:1250px) {
+
+    .tituloEmpresa {
+        height: 80px;
+        padding: 25px;
+        font-size: 30px;
+    }
+
+    
+
+
+    .seccionInicio {
+        min-width: 300px;
+        margin: 20px 0px 20px 70%;
+    }
+
+
+    .buscador input {
+        height: 25px;
+        width: 300px;
+
+    }
+
+    
+
+    .buscador input[type="submit"] {
+        margin-left: 0%;
+        border-radius: 30px;
+        background-color: rgb(233, 36, 36);
+        border: none;
+        width: 10%;
+        font-size: 20px;
+    }
+
+    .seccionMenu {
+       
+        height: 40px;
+    }
+
+    a.opcionMenu {
+        font-size: x-large;
+        
+    }
+
+
+    main {
+        padding-top: 30%;
+
+    }
+
+    .mayorAliado {
+        width: 50%;
+        height: 100%;
+        margin: 0px 0px 0px 50%;
+        line-height: 200%;
+        font-size: 25px;
+    }
+
+    .seccionServicios {
+        flex-direction: row;
+    }
+
+    .tarjeta {
+        min-width: 200px;
+        max-width: 300px;
+        font-size: 20px;
+        height: 400px;
+        background-color: rgb(233, 36, 36);
+        border-radius: 15px;
+        padding: 10px;
+    }
+
+}
