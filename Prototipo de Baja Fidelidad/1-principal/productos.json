@@ -1,0 +1,67 @@
+{   
+    "productos" :[
+    {  
+        "nombre" : "Leche",
+        "id": 0,
+        "precio" : 4500 , 
+        "caracteristicas": "1 Litro",
+        "imagen" : "imagenes/leche.jpg"
+    },
+
+    {   
+        "nombre" : "Yogurt",
+        "id": 1,
+        "precio" : 2500 , 
+        "caracteristicas": "140gr",
+        "imagen" : "imagenes/yogurt.webp"
+    },
+
+    {   
+        "nombre" : "Activia",
+        "id": 2,
+        "precio" : 2500 , 
+        "caracteristicas": "150gr",
+        "imagen" : "imagenes/activia.webp"
+
+    },
+
+    {   
+        "nombre" : "M-M",
+        "id": 3,
+        "precio" : 1000 , 
+        "caracteristicas": "100gr",
+        "imagen" : "imagenes/M-M.webp"
+    },
+
+    {   
+        "nombre" : "Avena",
+        "id": 4,
+        "precio" : 2500 , 
+        "caracteristicas": "180gr",
+        "imagen" : "imagenes/avena.jpg"
+    },
+
+    {   
+        "nombre" : "Jugo Tangelo",
+        "id": 5,
+        "precio" : 5000 , 
+        "caracteristicas": "2 Litros",
+        "imagen" : "imagenes/tangelo.webp"
+    }, 
+
+    {   
+        "nombre" : "ChocoLeche",
+        "id": 6,
+        "precio" : 5000 , 
+        "caracteristicas": "200gr",
+        "imagen" : "imagenes/chocoleche.jpg"
+    },
+    {   
+        "nombre" : "Arequipe",
+        "id": 7,
+        "precio" : 5000 , 
+        "caracteristicas": "50gr",
+        "imagen" : "imagenes/arequipe.webp"
+    }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+  "usuarios": [
+    {
+      "id": "0",
+      "nombre": "Daniel",
+      "contraseña": "DATC2003",
+      "telefono": "1352352",
+      "correo": "oiasubvab@ocjnas"
+    }
+  ],
+  "facturas": [
+    {
+      "id": "0",
+      "idFactura": "0",
+      "comprador": "Daniel",
+      "datalles": [
+        {
+          "nombreProducto": "Arequipe",
+          "cantidadProducto": 2,
+          "valorUnidad": 5000,
+          "precioTotal": 10000
+        }
+      ]
+    },
+    {
+      "id": "0",
+      "idFactura": "1",
+      "comprador": "Daniel",
+      "datalles": [
+        {
+          "nombreProducto": "Arequipe",
+          "cantidadProducto": 2,
+          "valorUnidad": 5000,
+          "precioTotal": 10000
+        },
+        {
+          "nombreProducto": "Jugo Tangelo",
+          "cantidadProducto": 2,
+          "valorUnidad": 5000,
+          "precioTotal": 10000
+        },
+        {
+          "nombreProducto": "ChocoLeche",
+          "cantidadProducto": 1,
+          "valorUnidad": 5000,
+          "precioTotal": 5000
+        }
+      ]
+    }
+  ]
+} 
