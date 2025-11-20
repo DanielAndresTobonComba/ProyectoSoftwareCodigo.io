@@ -337,10 +337,6 @@ function crearFactura(tarjeta, cantidad, accion) {
 }
 
 
-
-
-
-
 function filtrar(contenido) {
     console.log("entre a filtrar con : " + contenido)
     let contenedor = document.querySelector(".productos")
@@ -422,7 +418,7 @@ function datos() {
 
 }
 
-
+/* 
 function insertarProductos() {
 
     let contenedor = document.querySelector(".productos")
@@ -488,7 +484,7 @@ function insertarProductos() {
 
 
 }
-
+ */
 
 
 
@@ -848,5 +844,5 @@ function sumar(boton) {
 
     crearFactura(tarjeta, cantidad, accion)
 } */
-        insertarProductos()
-
+        /* insertarProductos()
+ */

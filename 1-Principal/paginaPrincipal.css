@@ -38,7 +38,7 @@ body {
 }
 
 .logo {
-    background-image: url("imagenes/logoSurtitiendas.jpg");
+    background-image: url("../ImagenesGlobales/logoSurtitiendas.jpg");
     background-size: cover;
     height: 100%;
     width: 80px;
@@ -86,41 +86,6 @@ body {
 }
 
 
-/* seccion del buscador */
-.seccionBuscador {
-
-    display: flex;
-
-    height: 30px;
-    width: 100%;
-    padding: 1px;
-}
-
-.buscador {
-    width: 100%;
-    padding: 2px;
-}
-
-.logoLupa {
-
-    border-radius: 30px;
-    background-color: rgb(233, 36, 36);
-}
-
-
-.buscador input {
-    height: 25px;
-    width: 50%;
-
-}
-
-
-.buscador input[type="submit"] {
-    border-radius: 30px;
-    background-color: rgb(233, 36, 36);
-    border: none;
-    width: 30%;
-}
 
 /* seccion del main del proyecto */
 

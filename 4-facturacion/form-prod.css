@@ -41,7 +41,7 @@ body {
 }
 
 .logo {
-    background-image: url("imagenes/logoSurtitiendas.jpg");
+    background-image: url("/ImagenesGlobales/logoSurtitiendas.jpg");
     background-size: cover;
     height: 100%;
     width: 80px;
