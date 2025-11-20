@@ -21,7 +21,7 @@
             
             <div class="seccionInicio">
                 <div class="iniciarSesion ">
-                    <svg  class="simboloInicioSesion" onclick="mostrarDatosIS()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg  class="simboloInicioSesion" onclick="iniciosesion()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="registrarte ">
-                    <svg class="simboloInicioSesion" onclick="iniciarSesion()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="simboloInicioSesion" onclick="datosiniciarSesion()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                         <path d="M16 19h6" />
@@ -64,21 +64,6 @@
                 <a href="../4-form-prod/main.html" class="opcionMenu">Productos</a>
         </div>
 
-        <div class="seccionBuscador">
-            <!-- <div class="logoLupa">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="40" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                    <path d="M21 21l-6 -6" />
-                </svg>
-            </div> 
-
-            <form action="https://www.google.com/search" class="buscador">
-                <input type="submit" value="Buscar" >
-                <input type="text" name="q" id="busqueda" target="_blank" >
-            </form> -->
-            
-        </div>
     </header>
     <!-- Sección de inicio sesion etc -->
 
@@ -98,7 +83,7 @@
         
         <section id="botones">
             <button onclick ="cerrarInicioSesion()" id="botonSalir">Cerrar</button>
-            <button onclick="mostrarDatosIS()" id="botonIngresar" >Ingresar</button>
+            <button onclick="iniciosesion()" id="botonIngresar" >Ingresar</button>
         </section>
     </div>
     
@@ -369,8 +354,9 @@
        
 
     </footer>
-
+    <script src="../nuevoInicioSesion.js"></script>
     <script src="../inicioSesion.js"></script>
+    
 </body>
 
 </html>

@@ -18,21 +18,7 @@ function mostrarTarjeta (){
     tarjeta.style.visibility = "visible"
 }
 
-/* Seccion tarjeta incio sesion */
 
-function iniciarSesion() {
-
-    let tarjetaInicioSesion = document.getElementById("tarjetaIniciarSesion")
-
-    console.log(localStorage.getItem("nombre"))
-    console.log(localStorage.getItem("contraseña"))
-
-    if (localStorage.getItem("nombre") != null && localStorage.getItem("contraseña") != null) {
-        console.log("Existen los datos")
-    } else {
-        tarjetaInicioSesion.style.visibility = "visible"
-    }
-}
 
 
 
@@ -51,19 +37,19 @@ function cerrarInicioSesion() {
 
 
 /* Seccion mostrarDatosIS */
-
+ /*
 function mostrarDatosIS() {
-
-    /* tarjeta de mostrar los datos del usuario */
+   
+     tarjeta de mostrar los datos del usuario 
     let tarjetaMostrarDatos = document.getElementById("seccionMostrarDatos")
 
 
-    /* obtengo los datos de inicioDeSesion */
+     obtengo los datos de inicioDeSesion 
     let usuarioIS = document.getElementById("usuarioInicioSesion").value
     let contraseñaIS = document.getElementById("contraseñaInicioSesion").value
 
 
-    /* obtengo las span de la tarjeta mostrarDatos */
+    obtengo las span de la tarjeta mostrarDatos 
     let spanUsuario = document.getElementById("spanUsuario")
     let spanContraseña = document.getElementById("spanContraseña")
 
@@ -71,9 +57,11 @@ function mostrarDatosIS() {
     console.log("usuarioIS: " + usuarioIS)
     console.log("contraseñaIS: " + contraseñaIS)
 
-    /* inputs de la tarjeta inicio sesion */
+     inputs de la tarjeta inicio sesion 
     let inputNombre = document.getElementById("usuarioInicioSesion")
     let inputContraseña = document.getElementById("contraseñaInicioSesion")
+
+    console.log("HOLAAA")
 
 
     if (usuarioIS != "" && contraseñaIS != "") {
@@ -130,68 +118,9 @@ function mostrarDatosIS() {
         spanUsuario.textContent = localStorage.getItem("nombre")
         spanContraseña.textContent = localStorage.getItem("contraseña")
     }
-    /*  else {
 
-        let nombreGuardado = localStorage.getItem("nombre")
-        let contraseñaGuardada = localStorage.getItem("contraseña")
-
-        console.log("entre a datosregistro")
-        console.log(nombreGuardado + contraseñaGuardada)
-
-        fetch("../usuarios.json")
-            .then(data => data.json())
-            .then(json => {
-
-                json.usuarios.forEach(usuario => {
-
-                    console.log("nombre" + usuario.nombre)
-
-                    if (usuario.nombre.toLowerCase() == nombreGuardado.toLowerCase()) {
-                        
-                        let input = document.getElementById("nombreRegistro")
-                        input.value = "ese nombre ya existe"
-
-
-
-                    } else if (usuario.contraseña == contraseñaGuardada) {
-                        
-                        let input = document.getElementById("contraseñaRegistro")
-                        input.value = "ya existe esa contraseña"
-
-                    }
-                    else {
-                        console.log("usuario Valido")
-
-                        cerrarInicioSesion()
-
-                        tarjetaMostrarDatos.style.visibility = "visible"
-
-                        spanUsuario.textContent = localStorage.getItem("nombre")
-
-                        spanContraseña.textContent = localStorage.getItem("contraseña")
-
-                        localStorage.setItem("nombre", usuarioIS)
-                        localStorage.setItem("contraseña", contraseñaIS)
-
-                        console.log("Datos de inicio de sesion Guardados")
-
-                        console.log(localStorage.getItem("nombre"))
-                        console.log(localStorage.getItem("contraseña"))
-                    }
-                })
-            }) 
-            
-        }*/
-
-
-      
-
-
-
-
-    
 }
-
+*/
 
 function cerrarDatos() {
     let padre = document.getElementById("seccionMostrarDatos")
