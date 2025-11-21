@@ -20,12 +20,12 @@
       <form id="formFactura">
         <div class="campo">
           <label>Nombre del Cliente:</label>
-          <input type="text" id="cliente" required>
+          <input type="text" id="cliente" placeholder="Ingresa el nombre del cliente" required>
         </div>
 
         <div class="campo">
           <label>Fecha:</label>
-          <input type="date" id="fecha" required>
+          <input type="date" id="fecha" placeholder="Selecciona una fecha" required>
         </div>
 
         <table id="tablaProductos" border="1">
@@ -38,15 +38,12 @@
               <th>Acción</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><input type="text" class="producto"></td>
-              <td><input type="number" class="cantidad" value="1" min="1"></td>
-              <td><input type="number" class="precio" value="0" min="0"></td>
-              <td class="subtotal">0</td>
-              <td><button type="button" class="btnEliminar">X</button></td>
-            </tr>
-          </tbody>
+        <tbody>
+        </tbody>
+
+<!-- ⚠️ ESTE DATALIST AUTOMÁTICAMENTE SE LLENA DESDE EL JS -->
+  <datalist id="listaProductos"></datalist>
+
         </table>
 
         <div class="botonesTabla">
@@ -59,7 +56,7 @@
 
         <div class="botonesFactura">
           <button type="reset" id="btnCancelar">Cancelar</button>
-          <button type="submit" id="btnGuardar">Guardar</button>
+          <!-- <button type="submit" id="btnGuardar">Guardar</button> -->
           <button type="button" id="btnGuardarEnviar">Guardar y Enviar</button>
         </div>
       </form>

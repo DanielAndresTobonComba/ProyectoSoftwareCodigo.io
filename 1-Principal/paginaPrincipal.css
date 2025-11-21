@@ -329,6 +329,26 @@ main {
     resize: vertical;
 }
 
+.boton-resenas {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#btnEnviar {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#btnEnviar:hover {
+    background-color: #ff4500;
+}
+
+
 /* formulario */
 
 .registro {
