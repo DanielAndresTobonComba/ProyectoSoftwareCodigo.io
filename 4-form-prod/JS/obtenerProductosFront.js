@@ -1,5 +1,5 @@
 
-function insertarProductos() {
+/* function insertarProductos() {
 
     let contenedor = document.querySelector(".productos")
     contenedor.innerHTML = ``
@@ -65,4 +65,4 @@ function insertarProductos() {
 
 }
 
-insertarProductos()
+insertarProductos() */

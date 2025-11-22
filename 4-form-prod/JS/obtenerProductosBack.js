@@ -5,38 +5,39 @@ function insertarProductos() {
     let contenedor = document.querySelector(".productos");
     contenedor.innerHTML = ``;
 
-    // 🔗 CAMBIA ESTE ENDPOINT POR EL TUYO REAL
-    const url = "http://localhost:8080/api/productos";
+    const url = "http://localhost:8080/api/productoSurtitiendas";
 
     fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error en la petición: " + response.status);
             }
-            return response.json(); // Convertir a JSON
+            return response.json();
         })
         .then(json => {
 
-            // Asegurar que json.productos exista
-            if (!json.productos || json.productos.length === 0) {
+            console.log("Productos recibidos:", json);
+
+            // 👉 Como json es un array, lo validamos así:
+            if (!Array.isArray(json) || json.length === 0) {
                 contenedor.innerHTML = `<p>No hay productos disponibles.</p>`;
                 return;
             }
 
-            json.productos.forEach(producto => {
+            json.forEach(producto => {  
                 let elemento = `
                 <div class="tarjeta">
                     <div class="textoTarjeta">
                         <p>${producto.nombre}</p>
                     </div>
 
-                    <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}">
+                    <img src="${producto.imagenUrl}" alt="Imagen de ${producto.nombre}">
 
                     <div class="detalleProducto">
                         <button class="botonDetalles" onclick="mostrar(this)">Detalles</button>
 
                         <section class="detalles">
-                            <p>Tamaño: ${producto.caracteristicas}</p>
+                            <p>Tamaño: ${producto.tamano || 'N/A'}</p>
                             <p>Precio: $${producto.precio}</p>
                         </section>
                     </div>
@@ -45,7 +46,7 @@ function insertarProductos() {
                         <button id="botonOrdenar" onclick="identificar(this)">Ordenar</button>
                     </div>
                 </div>
-                `
+                `;
                 contenedor.innerHTML += elemento;
             });
         })
@@ -55,5 +56,4 @@ function insertarProductos() {
         });
 }
 
-
-insertarProductos()
+insertarProductos();
