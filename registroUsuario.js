@@ -158,3 +158,16 @@ function tomarEnviarDatosRegistro() {
 
 
 }
+
+
+/*  
+http://localhost:8080/api/registro
+
+{
+    "nombre": "Juan Pérez",
+    "correo": "juan.perez@example.com",
+    "telefono": "123456789",
+    "contrasena": "miContraseñaSegura"
+}
+
+*/

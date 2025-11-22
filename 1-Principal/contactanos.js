@@ -89,3 +89,15 @@ function enviarFormulario(event) {
     })
     .catch(error => console.error("ERROR FETCH:", error));
 }
+
+
+
+/* {
+    "nombre": "Juan",
+    "apellidos": "Pérez",
+    "correo": "juan.perez@example.com",
+    "direccion": "Calle Falsa 123",
+    "telefono": "123456789",
+    "tipoFacturacion": "Personal",
+    "comentarios": "Interesado en más información."
+} */
