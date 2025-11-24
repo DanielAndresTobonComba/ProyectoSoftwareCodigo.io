@@ -17,14 +17,12 @@
 
     <div class="seccionBuscador">
 
-
             <form  class="buscador">
                 <input type="submit" value="Buscar" >
                 <input type="text" name="q" id="busqueda" target="_blank" onkeyup="filtrar(this.value)" >
             </form>
             
         </div>
-
 
     <h2 class="tituloAlqueria">Nuestros productos</h2>
 
@@ -62,11 +60,8 @@
 
             <section class="facturaActual" style="visibility: hidden;">
 
-<!--                 <button style="visibility: hidden;" id="botonConfirmarCompra" onclick="generarFactura()">Confirmar
-                    Compra</button> -->
+                    <button id="botonConfirmarCompra" onclick="confirmarCompra()">Confirmar Compra</button>
 
-                    <button style="visibility: hidden;" id="botonConfirmarCompra" onclick="eliminarTabla()">Confirmar
-                    Compra</button> 
 
                 <table border="0px" style="visibility: hidden;">
                     <tr>
@@ -146,10 +141,11 @@
 
     <script src="form-prod.js"></script>
     <script src="../inicioSesion.js"></script>
-        <script src="../nuevoInicioSesion.js"></script>
-            <script src="../registroUsuario.js"></script>
-            <script src="../4-form-prod/JS/obtenerProductosBack.js"></script>
-            <script src="../4-form-prod/JS/obtenerProductosFront.js"></script>
+    <script src="../nuevoInicioSesion.js"></script>
+    <script src="../registroUsuario.js"></script>
+    <script src="../4-form-prod/JS/obtenerProductosBack.js"></script>
+    <script src="/4-form-prod/JS/seccionFactura.js"></script>
+<!--     <script src="../4-form-prod/JS/obtenerProductosFront.js"></script> -->
 
 
 

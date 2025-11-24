@@ -70,7 +70,7 @@ function tomarEnviarDatosRegistro() {
                 return;
             } else if (tamaño == 0){
         
-                fetch("http://localhost:3000/usuarios", {
+                fetch("http://localhost:8080/usuarios", {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json; charset=UTF-8"
