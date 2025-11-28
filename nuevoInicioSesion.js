@@ -18,9 +18,6 @@ function datosiniciarSesion() {
 
 /* Tomamos los datos de logueo y manda la peticion al backend si hay respuesta positiva logueo exitoso y muestra los datos de logueo */
 function iniciosesion() {
-
-    console.log("ENTRE AL NUEVO INICIO 2")
-
     let tarjetaMostrarDatos = document.getElementById("seccionMostrarDatos");
 
     let usuarioIS = document.getElementById("usuarioInicioSesion").value;
@@ -33,60 +30,45 @@ function iniciosesion() {
     let inputContraseña = document.getElementById("contraseñaInicioSesion");
 
     if (usuarioIS !== "" && contraseñaIS !== "") {
-        
-        // 📌 Armamos el JSON para enviarlo al backend
+
         const data = {
             nombre: usuarioIS,
-            contraseña: contraseñaIS
+            contrasena: contraseñaIS   // 👈 CAMBIADO
         };
 
-        console.log("Enviando datos al servidor:", data);
-
-        // 📌 Endpoint al que se envía la petición (CÁMBIALO POR EL TUYO REAL)
-        const url = "http://localhost:8080/api/auth/login"; 
-
-        fetch(url, {
+        fetch("http://localhost:8080/api/registro/login", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"  // 📌 Se envía JSON
-            },
-            body: JSON.stringify(data) // 📌 Convertimos el objeto en JSON
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
         })
+
         .then(response => {
-            if (!response.ok) {
-                throw new Error("Error en la petición " + response.status);
-            }
-            return response.json(); // 📌 El backend debe responder JSON
+            if (!response.ok) throw new Error("Error en la petición " + response.status);
+            return response.json();
         })
+
         .then(res => {
+            console.log("Respuesta del backend:", res);
 
-            // 📌 Si el backend dice que el usuario existe
-            if (res.existe === true) {
-
+            if (res.usuario) { // 👈 CAMBIADO
                 localStorage.setItem("nombre", usuarioIS);
                 localStorage.setItem("contraseña", contraseñaIS);
 
                 cerrarInicioSesion();
                 tarjetaMostrarDatos.style.visibility = "visible";
-                spanUsuario.textContent = localStorage.getItem("nombre");
-                spanContraseña.textContent = localStorage.getItem("contraseña");
+                spanUsuario.textContent = usuarioIS;
+                spanContraseña.textContent = contraseñaIS;
 
                 console.log("Inicio de sesión exitoso");
             } 
-            // 📌 Si NO existe el usuario
             else {
                 inputNombre.value = "El usuario no existe";
                 inputContraseña.value = "";
                 inputContraseña.placeholder = "Contraseña incorrecta";
             }
         })
-        .catch(error => console.error("Error:", error));
 
-    } 
-    else {
-        // Si los campos estaban vacíos, se usan los del localStorage
-        tarjetaMostrarDatos.style.visibility = "visible";
-        spanUsuario.textContent = localStorage.getItem("nombre");
-        spanContraseña.textContent = localStorage.getItem("contraseña");
+        .catch(error => console.error("Error:", error));
     }
 }
+

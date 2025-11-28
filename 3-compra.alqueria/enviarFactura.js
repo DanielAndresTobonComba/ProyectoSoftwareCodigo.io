@@ -5,26 +5,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnGuardarEnviar.addEventListener("click", async () => {
 
-    // 🧍 1. OBTENER USUARIO LOGUEADO DESDE LOCALSTORAGE
-    const usuarioLogueado = localStorage.getItem("nombre");  
+    // 🧍 1. OBTENER USUARIO LOGUEADO
+    const usuarioLogueado = localStorage.getItem("nombre");
     if (!usuarioLogueado) {
       alert("⚠️ No hay usuario logueado.");
       return;
     }
 
-    // 🧾 2. ARMAR ARRAY DE PRODUCTOS DE LA TABLA
+    // 📌 2. OBTENER ID DEL USUARIO POR NOMBRE 📌
+    let idUsuario = null;
+    try {
+      const resUsuario = await fetch(`http://localhost:8080/api/registro/${usuarioLogueado}`);
+      if (!resUsuario.ok) throw new Error("Usuario no encontrado");
+      const dataUsuario = await resUsuario.json();
+      idUsuario = dataUsuario.id;
+      console.log("🆔 ID del usuario encontrado:", idUsuario);
+    } catch (error) {
+      console.error("❌ No se pudo obtener el usuario:", error);
+      alert("No se encontró el usuario en el sistema.");
+      return;
+    }
+
+    // 🧾 3. ARMAR ARRAY DE PRODUCTOS (ahora incluye precioUnitario)
     const productos = [];
     tabla.querySelectorAll("tr").forEach(fila => {
       const nombre = fila.querySelector(".producto").value.trim();
       const cantidad = parseInt(fila.querySelector(".cantidad").value);
-      const precio = fila.querySelector(".precioTexto").dataset.precio;  // el REAL
-
-      // Buscar en datalist el ID del producto
       const opcion = document.querySelector(`#listaProductos option[value="${nombre}"]`);
+      // Tomar el precio unitario desde el span correspondiente
+      let precioUnitario = 0;
+      const precioSpan = fila.querySelector(".precioTexto");
+      if (precioSpan) {
+        // Intentar leer el precio desde el dataset, si no, desde el texto
+        if (precioSpan.dataset && precioSpan.dataset.precio) {
+          precioUnitario = parseFloat(precioSpan.dataset.precio);
+        } else {
+          // Quitar puntos de miles y cambiar coma por punto
+          precioUnitario = parseFloat(precioSpan.textContent.replace(/\./g, "").replace(/,/g, "."));
+        }
+      }
+      // Tomar el subtotal desde la celda correspondiente
+      let subtotal = 0;
+      const subtotalCell = fila.querySelector(".subtotal");
+      if (subtotalCell) {
+        subtotal = parseFloat(subtotalCell.textContent.replace(/\./g, "").replace(/,/g, "."));
+      }
       if (opcion) {
         productos.push({
           idProducto: opcion.dataset.id,
-          cantidad: cantidad
+          cantidad: cantidad,
+          precioUnitario: precioUnitario,
+          subtotal: subtotal
         });
       }
     });
@@ -34,19 +65,29 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // 💰 3. TOTAL
+    // 💰 4. TOTAL
     const totalFactura = parseFloat(totalGeneral.textContent.replace(/\./g, "").replace(/,/g, "."));
 
-    // 📦 4. JSON FINAL PARA ENVIAR
+    // � 4.5 FECHA DE LA FACTURA (desde el input). Si no hay fecha, usar hoy.
+    const fechaInput = document.getElementById("fecha");
+    const fechaFactura = (fechaInput && fechaInput.value) ? fechaInput.value : new Date().toISOString().split("T")[0];
+
+    // �📦 5. JSON FINAL: añadimos la fecha a la factura y, por cada producto, añadimos la misma fecha y la cantidad
     const facturaJSON = {
-      nombreUsuario: usuarioLogueado,   // BACK buscará idUsuario con esto
+      usuario: { id: idUsuario }, // 🔥 CLAVE CORRECTA
+      fecha: fechaFactura,
       total: totalFactura,
-      productos: productos
+      productos: productos.map(p => ({
+        idProducto: p.idProducto,
+        cantidad: p.cantidad,
+        precioUnitario: p.precioUnitario,
+        subtotal: p.subtotal
+      }))
     };
 
-    console.log("📤 JSON a enviar:", facturaJSON);
+    console.log("📤 JSON FINAL a enviar:", facturaJSON);
 
-    // 🚀 5. ENVIAR POST AL BACKEND
+    // 🚀 6. ENVIAR POST
     try {
       const response = await fetch("http://localhost:8080/api/facturaAlqueria", {
         method: "POST",
@@ -60,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Factura guardada con éxito ✔️");
       console.log("🧾 Respuesta del backend:", data);
 
-      // 🧹 Limpiar si quieres después de guardar
       document.querySelector("#formFactura").reset();
       tabla.innerHTML = "";
       totalGeneral.textContent = "0";
@@ -71,13 +111,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-/* {
-  "nombreUsuario": "juan",
-  "total": 75000,
-  "productos": [
-    { "idProducto": "P001", "cantidad": 3 },
-    { "idProducto": "P005", "cantidad": 1 }
-  ]
-} */
