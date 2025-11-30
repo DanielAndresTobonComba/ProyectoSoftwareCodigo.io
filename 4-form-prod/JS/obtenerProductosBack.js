@@ -1,5 +1,8 @@
-function insertarProductos() {
+// Al inicio del archivo (si no lo tienes ya)
+let productosBackend = [];
 
+// Reemplaza la función insertarProductos() completa por esto:
+function insertarProductos() {
     console.log("Insertando productos desde el backend...");
     
     let contenedor = document.querySelector(".productos");
@@ -15,16 +18,17 @@ function insertarProductos() {
             return response.json();
         })
         .then(json => {
-
             console.log("Productos recibidos:", json);
 
-            // 👉 Como json es un array, lo validamos así:
+            // Guardar array globalmente para usar idProducto luego
+            productosBackend = Array.isArray(json) ? json : [];
+
             if (!Array.isArray(json) || json.length === 0) {
                 contenedor.innerHTML = `<p>No hay productos disponibles.</p>`;
                 return;
             }
 
-            json.forEach(producto => {  
+            json.forEach(producto => {
                 let elemento = `
                 <div class="tarjeta">
                     <div class="textoTarjeta">

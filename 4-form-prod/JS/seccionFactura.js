@@ -20,69 +20,84 @@ function mostrarFactura() {
 }
 
 function crearFactura(tarjeta, cantidad, accion) {
-    let contenedor = document.querySelector(".facturaActual");
-    let tabla = document.querySelector("table");
-
-    let nombreProducto = tarjeta.children[0].children[0].textContent;
+    let tabla = document.querySelector("table tbody");
+    let nombreProducto = tarjeta.querySelector(".textoTarjeta p").textContent.trim();
     let casillaValorTotal = document.getElementById("valorTotalCasilla");
 
-    fetch("productos.json")
-        .then(data => data.json())
-        .then(json => {
-            let producto = json.productos.find(p => p.nombre === nombreProducto);
-            if (!producto) return;
+    // Buscar producto real del backend por nombre (comparar trim para evitar fallos)
+    let producto = productosBackend.find(p => (p.nombre || "").trim() === nombreProdutoNorm(nombreProducto));
+    if (!producto) {
+        // Intentar buscar sin normalizar por si hay diferencias mínimas
+        producto = productosBackend.find(p => (p.nombre || "").trim() === nombreProducto);
+    }
+    if (!producto) return;
 
-            let id = producto.id;
-            let precio = producto.precio;
-            let fila = document.getElementById(id);
+    let idProducto = producto.idProducto;  // ID real del backend
+    let precioUnitario = Number(producto.precio);
+    let fila = document.querySelector(`tr[data-idproducto="${idProducto}"]`);
 
-            if (accion === "sumar") {
-                if (!fila) {
-                    fila = tabla.insertRow();
-                    fila.setAttribute("id", id);
+    if (accion === "sumar") {
+        if (!fila) {
+            fila = tabla.insertRow();
+            fila.setAttribute("data-idproducto", idProducto);
 
-                    let celdaNombre = fila.insertCell(0);
-                    let celdaCantidad = fila.insertCell(1);
-                    let celdaPrecio = fila.insertCell(2);
+            // Creando celdas de la fila
+            const celNombre = fila.insertCell(0);
+            const celCantidad = fila.insertCell(1);
+            const celPrecio = fila.insertCell(2);
+            const celSubtotal = fila.insertCell(3);
 
-                    celdaNombre.textContent = producto.nombre;
-                    celdaCantidad.textContent = 1;
-                    celdaPrecio.textContent = precio;
+            celNombre.textContent = producto.nombre;
+            celCantidad.textContent = 1;
+            celPrecio.textContent = formatNumberPlain(precioUnitario); // guardamos número "2500" o "2500.00"
+            celSubtotal.textContent = formatNumberPlain(precioUnitario);
 
-                    contenedor.prepend(tabla);
-                    ids.push(id);
-                } else {
-                    let celdaCantidad = fila.children[1];
-                    let celdaPrecio = fila.children[2];
+            // agregar al array de ids si usas
+            if (!ids.includes(idProducto)) ids.push(idProducto);
+        } else {
+            let celdaCantidad = fila.children[1];
+            let celdaSubtotal = fila.children[3];
 
-                    let nuevaCantidad = parseInt(celdaCantidad.textContent) + 1;
-                    celdaCantidad.textContent = nuevaCantidad;
-                    celdaPrecio.textContent = (nuevaCantidad * precio).toFixed(2);
-                }
+            let nuevaCantidad = parseInt(celdaCantidad.textContent, 10) + 1;
+            celdaCantidad.textContent = nuevaCantidad;
+            celdaSubtotal.textContent = formatNumberPlain(nuevaCantidad * precioUnitario);
+        }
 
-                valorTotal += precio;
-                casillaValorTotal.textContent = valorTotal.toFixed(2);
+        valorTotal += precioUnitario;
+        casillaValorTotal.textContent = formatNumberPlain(valorTotal);
+    } else if (accion === "restar" && fila) {
+        let celdaCantidad = fila.children[1];
+        let celdaSubtotal = fila.children[3];
 
-            } else if (accion === "restar" && fila) {
-                let celdaCantidad = fila.children[1];
-                let celdaPrecio = fila.children[2];
+        let nuevaCantidad = parseInt(celdaCantidad.textContent, 10) - 1;
 
-                let nuevaCantidad = parseInt(celdaCantidad.textContent) - 1;
+        if (nuevaCantidad <= 0) {
+            fila.remove();
+            ids = ids.filter(item => item !== idProducto);
+        } else {
+            celdaCantidad.textContent = nuevaCantidad;
+            celdaSubtotal.textContent = formatNumberPlain(nuevaCantidad * precioUnitario);
+        }
 
-                if (nuevaCantidad <= 0) {
-                    fila.remove();
-                    ids = ids.filter(item => item !== id);
-                } else {
-                    celdaCantidad.textContent = nuevaCantidad;
-                    celdaPrecio.textContent = (nuevaCantidad * precio).toFixed(2);
-                }
-
-                valorTotal -= precio;
-                if (valorTotal < 0) valorTotal = 0;
-                casillaValorTotal.textContent = valorTotal.toFixed(2);
-            }
-        });
+        valorTotal -= precioUnitario;
+        if (valorTotal < 0) valorTotal = 0;
+        casillaValorTotal.textContent = formatNumberPlain(valorTotal);
+    }
 }
+
+// helper: formatea número en plain (sin puntos de miles) para enviar/usar en cálculos
+function formatNumberPlain(n) {
+    if (isNaN(n)) return "0";
+    // devuelve string con decimales si tiene
+    return Number(n).toFixed(2).replace(/\.00$/, ""); // opcional quitar .00 si prefieres
+}
+
+// helper normalización nombres (quita dobles espacios, poner trim)
+function nombreProdutoNorm(s) {
+    return s.replace(/\s+/g, ' ').trim();
+}
+
+
 
 function identificar(boton) {
     let padreCercano = boton.parentElement;
@@ -111,25 +126,30 @@ function obtenerProductosFactura() {
 
     filas.forEach((fila, i) => {
         if (i === 0) return; // saltar encabezado
-        const id = fila.getAttribute("id");
-        const cantidad = parseInt(fila.children[1].textContent);
+        const id = fila.getAttribute("data-idproducto"); // <-- CAMBIO IMPORTANTE
+        const cantidad = parseInt(fila.children[1].textContent, 10);
+
+        if (!id) return; // saltar si por alguna razon no existe
 
         productos.push({
-            id_producto: id,
-            cantidad: cantidad
+            idProducto: id,   // campo idProducto (no id_producto)
+            cantidad: cantidad,
+            // opcional: enviar precioUnitario y subtotal si los quieres
+            precioUnitario: parseFloat((fila.children[2].textContent || "0").replace(/\./g, "").replace(/,/g, ".")),
+            subtotal: parseFloat((fila.children[3].textContent || "0").replace(/\./g, "").replace(/,/g, "."))
         });
     });
 
     return productos;
 }
 
+
 /* 🔥 NUEVO: ENVIAR FACTURA AL BACKEND */
-function confirmarCompra() {
+async function confirmarCompra() {
     let usuario = localStorage.getItem("nombre");
 
-    // Si es un objeto JSON, lo convierto. Si es solo un string, lo dejo como está
     try {
-        usuario = JSON.parse(usuario);   // Si falla, se queda como string.
+        usuario = JSON.parse(usuario);   // Si es JSON, parsea
     } catch (e) {}
 
     if (!usuario) {
@@ -137,7 +157,6 @@ function confirmarCompra() {
         return;
     }
 
-    // Si es un string tipo "Daniel", lo pongo como { nombre: "Daniel" }
     if (typeof usuario === "string") {
         usuario = { nombre: usuario };
     }
@@ -148,31 +167,57 @@ function confirmarCompra() {
         return;
     }
 
-    const total = document.getElementById("valorTotalCasilla").textContent;
+    // obtener ID del usuario desde backend por nombre
+    let idUsuario = null;
+    try {
+        const resUsuario = await fetch(`http://localhost:8080/api/registro/${encodeURIComponent(usuario.nombre)}`);
+        if (!resUsuario.ok) throw new Error("Usuario no encontrado");
+        const dataUsuario = await resUsuario.json();
+        idUsuario = dataUsuario.id;
+    } catch (err) {
+        console.error("Error obteniendo usuario:", err);
+        mostrarAlertaBonita("No se encontró el usuario en el sistema", "#f44336");
+        return;
+    }
+
+    // total: tomar número del DOM y parsearlo
+    const totalText = document.getElementById("valorTotalCasilla").textContent || "0";
+    const total = parseFloat(totalText.toString().replace(/\./g, "").replace(/,/g, "."));
 
     const facturaJSON = {
-        nombreUsuario: usuario.nombre,  // 🔥 Ya no falla
+        fecha: new Date().toISOString().split("T")[0], // YYYY-MM-DD
+        productos: productosFactura.map(p => ({
+            idProducto: p.idProducto,
+            cantidad: p.cantidad,
+            precioUnitario: p.precioUnitario,
+            subtotal: p.subtotal
+        })),
         total: total,
-        productos: productosFactura
+        usuario: { id: idUsuario }
     };
 
     console.log("Se enviará al backend:", facturaJSON);
 
-    // DEJÉ EL FETCH COMENTADO HASTA QUE TENGAS BACKEND
-    
-    fetch("http://localhost:8080/facturas", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(facturaJSON)
-    })
-    .then(res => res.json())
-    .then(data => {
+    try {
+        const response = await fetch("http://localhost:8080/api/facturaAlqueria", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(facturaJSON)
+        });
+
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error("HTTP " + response.status + " - " + text);
+        }
+
+        const data = await response.json();
         mostrarAlertaBonita("Factura guardada exitosamente");
         console.log("Respuesta del backend:", data);
         eliminarTabla();
-    })
-    .catch(error => console.error("Error al enviar factura:", error));
-    
+    } catch (error) {
+        console.error("Error al enviar factura:", error);
+        mostrarAlertaBonita("Error al guardar la factura", "#f44336");
+    }
 }
 
 

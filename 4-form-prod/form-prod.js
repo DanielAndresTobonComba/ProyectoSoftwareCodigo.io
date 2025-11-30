@@ -72,7 +72,7 @@ function cerrarHistorial(){
 }
 
 
-function historialFacturas(accion = "") {
+/* function historialFacturas(accion = "") {
 
     let seccionHistorial = document.getElementById("contenedorHistorial")
     let contenedor = document.getElementById("factura")
@@ -252,7 +252,7 @@ function historialFacturas(accion = "") {
 
 
 }
-
+ */
 
 
 
