@@ -1,3 +1,17 @@
+// Muestra los datos del usuario si está logueado, si no muestra la tarjeta de inicio de sesión
+function mostrarDatosOSesion() {
+    const nombre = localStorage.getItem("nombre");
+    const contrasena = localStorage.getItem("contraseña");
+    if (nombre && contrasena) {
+        // Mostrar sección de datos
+        document.getElementById("seccionMostrarDatos").style.visibility = "visible";
+        document.getElementById("spanUsuario").textContent = nombre;
+        document.getElementById("spanContraseña").textContent = contrasena;
+    } else {
+        // Mostrar tarjeta de inicio de sesión
+        document.getElementById("tarjetaIniciarSesion").style.visibility = "visible";
+    }
+}
 /* Seccion tarjeta incio sesion si no esta logueado muestre la tarjeta de logueo */
 
 function datosiniciarSesion() {
@@ -18,6 +32,7 @@ function datosiniciarSesion() {
 
 /* Tomamos los datos de logueo y manda la peticion al backend si hay respuesta positiva logueo exitoso y muestra los datos de logueo */
 function iniciosesion() {
+
     let tarjetaMostrarDatos = document.getElementById("seccionMostrarDatos");
 
     let usuarioIS = document.getElementById("usuarioInicioSesion").value;
@@ -33,7 +48,7 @@ function iniciosesion() {
 
         const data = {
             nombre: usuarioIS,
-            contrasena: contraseñaIS   // 👈 CAMBIADO
+            contrasena: contraseñaIS   
         };
 
         fetch("http://localhost:8080/api/registro/login", {
