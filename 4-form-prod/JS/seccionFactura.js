@@ -121,22 +121,18 @@ function identificar(boton) {
 
 /* 🔥 NUEVO: OBTENER PRODUCTOS DE LA FACTURA */
 function obtenerProductosFactura() {
-    const filas = document.querySelectorAll('.facturaActual table tr');
+    const filas = document.querySelectorAll('.facturaActual table tbody tr');
     let productos = [];
 
-    filas.forEach((fila, i) => {
-        if (i === 0) return; // saltar encabezado
-        const id = fila.getAttribute("data-idproducto"); // <-- CAMBIO IMPORTANTE
-        const cantidad = parseInt(fila.children[1].textContent, 10);
-
-        if (!id) return; // saltar si por alguna razon no existe
+    filas.forEach(fila => {
+        const id = fila.getAttribute("data-idproducto");
+        if (!id) return;
 
         productos.push({
-            idProducto: id,   // campo idProducto (no id_producto)
-            cantidad: cantidad,
-            // opcional: enviar precioUnitario y subtotal si los quieres
-            precioUnitario: parseFloat((fila.children[2].textContent || "0").replace(/\./g, "").replace(/,/g, ".")),
-            subtotal: parseFloat((fila.children[3].textContent || "0").replace(/\./g, "").replace(/,/g, "."))
+            idProducto: id,
+            cantidad: parseInt(fila.children[1].textContent, 10),
+            precioUnitario: Number(fila.children[2].textContent),
+            subtotal: Number(fila.children[3].textContent)
         });
     });
 
@@ -182,7 +178,7 @@ async function confirmarCompra() {
 
     // total: tomar número del DOM y parsearlo
     const totalText = document.getElementById("valorTotalCasilla").textContent || "0";
-    const total = parseFloat(totalText.toString().replace(/\./g, "").replace(/,/g, "."));
+    const total = Number(totalText);
 
     const facturaJSON = {
         fecha: new Date().toISOString().split("T")[0], // YYYY-MM-DD
@@ -199,7 +195,7 @@ async function confirmarCompra() {
     console.log("Se enviará al backend:", facturaJSON);
 
     try {
-        const response = await fetch("http://localhost:8080/api/facturaAlqueria", {
+        const response = await fetch("http://localhost:8080/api/facturaSurtitiendas", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(facturaJSON)
@@ -214,9 +210,11 @@ async function confirmarCompra() {
         mostrarAlertaBonita("Factura guardada exitosamente");
         console.log("Respuesta del backend:", data);
         eliminarTabla();
+
+        setTimeout(() => location.reload(), 1200);
     } catch (error) {
         console.error("Error al enviar factura:", error);
-        mostrarAlertaBonita("Error al guardar la factura", "#f44336");
+        mostrarAlertaBonita("Error al guardar la factura", "#561712ff");
     }
 }
 
