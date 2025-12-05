@@ -1,3 +1,13 @@
+main {
+
+    margin-bottom: 300px;
+    padding-top: 50px;
+}
+
+.tituloAlqueria {
+    text-align: center;
+}
+
 .seccionFacturacion {
   background-color: rgb(247, 239, 239);
   width: 80%;

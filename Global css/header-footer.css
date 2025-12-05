@@ -1,0 +1,212 @@
+/* Header tarjetas de usuario , menu de navegacion , logos logo */
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 300px;
+}
+
+.tituloEmpresa {
+    background-color: rgb(233, 36, 36);
+    color: white;
+    height: 50px;
+    font-size: large;
+    text-align: center;
+    padding: 15px;
+}
+
+.tituloEmpresa p {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body {
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.bordeNegro {
+    border: solid black;
+}
+
+.seccionLogo {
+    display: flex;
+    height: 80px;
+
+
+}
+
+.logo {
+    background-image: url("../ImagenesGlobales/logoSurtitiendas.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 80px;
+}
+
+/* Seccion de los logos de inicio de sesion */
+
+
+
+.iniciarSesion,
+.registrarte {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: rgb(233, 36, 36);
+
+}
+
+.registrarte p {
+    display: none;
+}
+
+.seccionInicio {
+    width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0px 20px 45%;
+}
+
+#tarjetaIniciarSesion , #seccionMostrarDatos , #tarjetaCerrarSesion  {
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: rgb(238 186 120);
+    position: fixed;
+    visibility: hidden;
+
+}
+
+/* menu de busqueda */
+
+.seccionMenu {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(233, 36, 36);
+    width: 100%;
+
+}
+
+.opcionMenu {
+    text-decoration: none;
+    color: white;
+    margin: auto;
+
+}
+
+
+/* seccion footer */
+
+footer {
+    background-color: rgb(233, 36, 36);
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    font-size: large;
+}
+
+
+.logoAlqueria {
+    background-image: url("../4-form-prod/imagenes/logo-alqueria-blanco.png");
+    background-size: cover;
+    width: 200px;
+    height: 60px;
+    margin: 0px auto;
+
+}
+
+
+.seccionRedesSociales {
+    display: flex;
+    width: 80%;
+    margin: 10px auto;
+    justify-content: space-evenly;
+}
+
+
+
+
+#seccionMostrarDatos button , #tarjetaCerrarSesion button , #tarjetaIniciarSesion button {
+    width: 30%;
+    margin: 0PX auto;
+    border-radius: 3px ;
+    border: none;
+    background-color: rgb(229 171 97);
+    height: 20px;
+}
+
+
+#tarjetaIniciarSesion input{
+    background-color:rgb(229 171 97);
+    margin: 5px;
+    border-radius: 3px ;
+    border: none;
+    color: black;
+    height: 25px;
+}
+
+#tarjetaIniciarSesion a{
+    background-color: rgb(229 171 97);
+    width: 50%;
+    height: 20px;
+    margin: 5px auto;
+    border-radius: 3px ;
+}
+
+#botonesCerrarSesion{
+    display: flex;
+}
+
+
+
+#entradaDatos {
+
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 200px;
+    margin: 20px auto;
+}
+
+#enlaceRegistro {
+    margin-top: 10px;
+}
+
+
+#seccionRegistro input {
+    width: 50%;
+
+}
+
+#botonesRegistro {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0px auto;
+    
+}
+
+#botonesRegistro button  {
+    background-color: rgb(229 171 97);
+    margin: 5px;
+    border-radius: 3px;
+    border: none;
+    color:black;
+    height: 25px;
+}
+
+
+
+
