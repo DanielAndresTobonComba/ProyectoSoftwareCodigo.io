@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+/* document.addEventListener("DOMContentLoaded", async () => {
   const tabla = document.getElementById("tablaHistorial").querySelector("tbody");
 
   // Cargar datos desde facturas.json
@@ -85,3 +85,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     return `${d}/${m}/${y}`;
   }
 });
+ */
