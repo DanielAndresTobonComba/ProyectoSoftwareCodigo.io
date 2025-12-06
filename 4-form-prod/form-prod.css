@@ -1,93 +1,3 @@
-/* Header logo */
-
-* {
-    box-sizing: border-box;
-}
-
-h1 {
-    margin-bottom: 300px;
-}
-
-.tituloEmpresa {
-    background-color: rgb(233, 36, 36);
-    color: white;
-    height: 50px;
-    font-size: large;
-    text-align: center;
-    padding: 15px;
-}
-
-.tituloEmpresa p {
-    margin: 0px;
-    padding: 0px;
-}
-
-
-body {
-
-    margin: 0px;
-    padding: 0px;
-}
-
-.bordeNegro {
-    border: solid black;
-}
-
-.seccionLogo {
-    display: flex;
-    height: 80px;
-
-
-}
-
-.logo {
-    background-image: url("../ImagenesGlobales/logoSurtitiendas.jpg");
-    background-size: cover;
-    height: 100%;
-    width: 80px;
-}
-
-/* Seccion de los logos de inicio de sesion */
-
-.seccionInicio {
-    width: 150px;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 20px 0px 20px 5%;
-}
-
-.iniciarSesion,
-.registrarte {
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-    background-color: rgb(233, 36, 36);
-
-}
-
-
-
-.registrarte p {
-    display: none;
-}
-
-/* menu de busqueda */
-
-.seccionMenu {
-    display: flex;
-    justify-content: space-evenly;
-    background-color: rgb(233, 36, 36);
-    width: 100%;
-
-}
-
-.opcionMenu {
-    text-decoration: none;
-    color: white;
-    margin: auto;
-
-}
-
 
 /* seccion del buscador */
 .seccionBuscador {
@@ -127,14 +37,6 @@ body {
 
 
 /* seccion productos */
-
-main {
-
-    margin-bottom: 300px;
-    padding-top: 50px;
-}
-
-
 
 .tituloAlqueria {
     text-align: center;
@@ -209,192 +111,7 @@ main {
 }
 
 
-/* formulario */
-
-.registro {
-    margin: 0px auto 50px auto;
-    text-align: center;
-    background-color:  rgb(218, 159, 83);
-    padding: 10px;
-    border-radius: 20px;
-
-}
-
-.registro input {
-    
-    text-align: center;
-    background-color:  rgb(218, 159, 83);
-    padding: 10px;
-    border-radius: 20px;
-
-}
-
-
-.registro button {
-    margin: 0px auto 50px auto;
-    text-align: center;
-    background-color:  rgb(218, 159, 83);
-    padding: 10px;
-    border-radius: 20px;
-
-}
-
-
-
-/* seccion footer */
-
-footer {
-    background-color: rgb(233, 36, 36);
-    color: white;
-    text-align: center;
-    width: 100%;
-}
-
-footer p {
-    font-size: large;
-}
-
-
-.logoAlqueria {
-    background-image: url("imagenes/logo-alqueria-blanco.png");
-    background-size: cover;
-    width: 200px;
-    height: 60px;
-    margin: 0px auto;
-
-}
-
-
-.seccionRedesSociales {
-    display: flex;
-    width: 80%;
-    margin: 10px auto;
-    justify-content: space-evenly;
-}
-
-
-
-#tarjetaIniciarSesion , #seccionMostrarDatos , #tarjetaCerrarSesion  {
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px;
-    border-radius: 20px;
-    padding: 5px;
-    background-color: rgb(238 186 120);
-    left: 38%;
-    top: 38%;
-    position: fixed;
-    visibility: hidden;
-
-}
-
-#seccionMostrarDatos button , #tarjetaCerrarSesion button , #tarjetaIniciarSesion button {
-    width: 30%;
-    margin: 0PX auto;
-    border-radius: 3px ;
-    border: none;
-    background-color: rgb(229 171 97);
-    height: 20px;
-}
-
-
-#tarjetaIniciarSesion input{
-    background-color:rgb(229 171 97);
-    margin: 5px;
-    border-radius: 3px ;
-    border: none;
-    color: black;
-    height: 25px;
-}
-
-#tarjetaIniciarSesion a{
-    background-color: rgb(229 171 97);
-    width: 50%;
-    height: 20px;
-    margin: 5px auto;
-    border-radius: 3px ;
-}
-
-#botonesCerrarSesion{
-    display: flex;
-}
-
-
-
-
-
-#entradaDatos {
-
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    width: 200px;
-    margin: 20px auto;
-}
-
-#enlaceRegistro {
-    margin-top: 10px;
-}
-
-
-#seccionRegistro input {
-    width: 50%;
-
-}
-
-#botonesRegistro {
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    margin: 0px auto;
-    
-}
-
-#botonesRegistro button  {
-    background-color: rgb(229 171 97);
-    margin: 5px;
-    border-radius: 3px;
-    border: none;
-    color:black;
-    height: 25px;
-}
-
-
-
-
-/* #seccionMostrarDatos {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px;
-    border-radius: 20px;
-    height: 200px;
-    visibility: hidden;
-    background-color: rgb(241, 90, 90);
-    left: 38%;
-    top: 38%;
-    position: fixed;
-} */
-
-
-#seccionRegistro {
-    text-align: center;
-    width: 300px;
-    border-radius: 20px;
-    padding: 5px;
-    background-color:  rgb(218, 159, 83);
-    left: 38%;
-    top: 38%;
-    position: fixed;
-}
-
-/* tarjeta cerrar sesion */
-
-/* Factura */
+/* Factura/COTIZACION */
 
 #contenedorHistorial{
     text-align: center;
@@ -456,33 +173,9 @@ footer p {
 
 @media (min-width:0px) and (max-width:320px) {
 
-    /* header */
 
-    .seccionInicio {
-        min-width: 100px;
-        margin: 20px 0px 20px 0%;
-    }
-
-    .iniciarSesion,
-    .registrarte {
-        width: 30px;
-        height: 35px;
-    }
-
-    .simboloInicioSesion {
-        width: 30px;
-        height: 30px;
-    }
-
-    .seccionMenu {
-        flex-direction: column;
-    }
-
-    .seccionMenu a {
-        margin: 10px auto;
-
-    }
-
+    /* buscador */
+    
     .buscador input {
         width: 60%;
     }
@@ -502,7 +195,6 @@ footer p {
         width: 100%;
         margin: 0px auto;
         border-radius: 20px;
-        margin-bottom: 200px;
 
     }
 
@@ -522,7 +214,6 @@ footer p {
 
     }
 
-    
 
     .seccionBotones p {
         margin: 0px 2px;
@@ -649,29 +340,6 @@ footer p {
 
 @media(min-width:321px) and (max-width:500px) {
 
-    .tituloEmpresa {
-        height: 80px;
-        padding: 25px;
-        font-size: 25px;
-    }
-
-    .iniciarSesion,
-    .registrarte {
-        width: 30px;
-        height: 35px;
-    }
-
-    .simboloInicioSesion {
-        width: 30px;
-        height: 30px;
-    }
-
-    .seccionInicio {
-
-        min-width: 200px;
-        margin: 20px 0px 20px 10%;
-    }
-
     .buscador input {
         height: 25px;
         width: 60%;
@@ -686,20 +354,15 @@ footer p {
         flex-direction: column;
     }
 
-    .seccionMenu a {
-        margin: 10px auto;
-    }
-
 
     main {
         padding: 5px;
         width: 100%;
         margin: 0px auto;
         border-radius: 20px;
-        margin-bottom: 200px;
+        
 
     }
-
 
 
     .productos img {
@@ -743,52 +406,13 @@ footer p {
     }
 
 
-    form {
-        width: 60%;
-    }
 
-    /* footer */
-    .seccionRedesSociales{
-        display: flex;
-        
-    }
-
-    
-
-
-
-     /* iniciar sesion */
-
-     #tarjetaIniciarSesion , #seccionMostrarDatos , #seccionRegistro ,#tarjetaCerrarSesion {
-        left: 5%;
-        top: 18%;
-        width: 300px;
-        text-align: center;
-    
-    }
-
-    #tarjetaIniciarSesion input{
-        width: 200px;
-    }
-
-    #enlaceRegistro{
-        width: 200px;
-    }
 
 }
 
 @media (min-width:501px) and (max-width:768px) {
 
-    .seccionInicio {
-        min-width: 200px;
-        margin: 20px 0px 20px 50%;
-
-    }
-
-
-    .seccionMenu {
-        height: 40px;
-    }
+    
 
     .buscador input {
         height: 25px;
@@ -806,7 +430,6 @@ footer p {
         width: 80%;
         margin: auto;
         border-radius: 20px;
-        margin-bottom: 200px;
 
     }
 
@@ -857,40 +480,12 @@ footer p {
         margin: 17px 0px 0px 10px;
     }
 
-
-    form {
-        width: 40%;
-
-    }
-
-    /* iniciar sesion */
-
-    #tarjetaIniciarSesion , #seccionMostrarDatos , #seccionRegistro , #tarjetaCerrarSesion{
-        left: 30%;
-        top: 30%;
-    }
-
-
-
 }
 
 
 
 @media (min-width:769px) and (max-width:1250px) {
 
-
-    .tituloEmpresa {
-        font-size: x-large;
-    }
-
-    a.opcionMenu {
-        font-size: x-large;
-    }
-
-    .seccionInicio {
-        margin: 20px 0px 20px 45%;
-        width: 400px;
-    }
 
     .buscador input {
         width: 20%;
@@ -903,16 +498,12 @@ footer p {
 
     }
 
-    .seccionMenu {
-        height: 40px;
-    }
 
     main {
         padding: 20px;
         width: 80%;
         margin: 0px auto;
         border-radius: 20px;
-        margin-bottom: 200px;
 
     }
 
@@ -957,25 +548,11 @@ footer p {
         margin: 17px 0px 0px 10px;
     }
 
-    form {
-        width: 40%;
-    }
 
 }
 
 
 @media (min-width:1250px) {
-
-    .tituloEmpresa {
-        height: 80px;
-        padding: 25px;
-        font-size: 30px;
-    }
-
-    .seccionInicio {
-        min-width: 300px;
-        margin: 20px 0px 20px 70%;
-    }
 
 
     .buscador input {
@@ -993,16 +570,6 @@ footer p {
         border: none;
         width: 10%;
         font-size: 20px;
-    }
-
-    .seccionMenu {
-
-        height: 40px;
-    }
-
-    a.opcionMenu {
-        font-size: x-large;
-
     }
 
 
